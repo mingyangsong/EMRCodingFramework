@@ -1,4 +1,4 @@
-package cmu.lti;
+package edu.cmu.lti.uima.server;
 
 import java.io.IOException;
 
