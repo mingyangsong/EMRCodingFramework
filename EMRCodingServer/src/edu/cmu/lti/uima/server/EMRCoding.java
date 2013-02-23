@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(description = "it's for emrcoding team", urlPatterns = { "/EMRCoding" })
 public class EMRCoding extends HttpServlet {
 
-	private String target = "/login.jsp";
+	private String target = "/index.jsp";
 	private static final long serialVersionUID = -3522462295690035558L;
 
 	public EMRCoding() {
@@ -31,11 +31,9 @@ public class EMRCoding extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String Input = request.getParameter("input");
 
-		request.setAttribute("USER", username);
-		request.setAttribute("PASSWORD", password);
+		request.setAttribute("INPUT", Input);
 
 		ServletContext context = getServletContext();
 
@@ -43,5 +41,4 @@ public class EMRCoding extends HttpServlet {
 		RequestDispatcher dispatcher = context.getRequestDispatcher(target);
 		dispatcher.forward(request, response);
 	}
-
 }
