@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class emrcoding
  */
-@WebServlet(description = "it's for emrcoding team", urlPatterns = { "/EMRCoding" })
+@WebServlet(description = "it's for EMRCoding team", urlPatterns = { "/EMRCoding" })
 public class EMRCoding extends HttpServlet {
 
 	private String target = "/index.jsp";
@@ -25,13 +25,14 @@ public class EMRCoding extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		//response.getWriter().write("Hello, world!");
+		// response.getWriter().write("Hello, world!");
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String Input = request.getParameter("input");
+		String Input = new String();
+		Input = request.getParameter("input");
 
 		request.setAttribute("INPUT", Input);
 
