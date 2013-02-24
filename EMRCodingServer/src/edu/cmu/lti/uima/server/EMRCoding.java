@@ -20,16 +20,24 @@ public class EMRCoding extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// response.getWriter().write("Hello, world!");
+		String FileDir = request.getParameter("input");
+		System.out.println(FileDir);
+		try {
+			new SimpleRunCPE(
+					"C:\\Users\\s\\Desktop\\EMRCoding\\EMRCoding_Server\\EMRCodingServer\\descriptors\\descriptors\\MappingCPE.xml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String Input = new String();
-		Input = request.getParameter("input");
 
-		request.setAttribute("INPUT", Input);
+		String Input = StandardOutput.getInstance().getString();
+
+		request.setAttribute("REPORT", Input);
 
 		ServletContext context = getServletContext();
 

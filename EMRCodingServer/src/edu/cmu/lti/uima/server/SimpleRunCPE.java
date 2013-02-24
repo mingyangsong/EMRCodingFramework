@@ -1,3 +1,4 @@
+package edu.cmu.lti.uima.server;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -60,58 +61,36 @@ public class SimpleRunCPE extends Thread {
    * @param args
    *          command line arguments into the program - see class description
    */
-  public SimpleRunCPE(String args[]) throws Exception {
+  public SimpleRunCPE(String filedir) throws Exception {
     mStartTime = System.currentTimeMillis();
 
-    // check command line args
-    if (args.length < 1) {
-      printUsageMessage();
-      System.exit(1);
-    }
-
+    StandardOutput stdOut=StandardOutput.getInstance();
+    
     // parse CPE descriptor
-    System.out.println("Parsing CPE Descriptor");
+    stdOut.setString("Parsing CPE Descriptor");
     CpeDescription cpeDesc = UIMAFramework.getXMLParser().parseCpeDescription(
-            new XMLInputSource(args[0]));
+            new XMLInputSource(filedir));
     // instantiate CPE
-    System.out.println("Instantiating CPE");
+    stdOut.setString("Instantiating CPE");
     mCPE = UIMAFramework.produceCollectionProcessingEngine(cpeDesc);
 
     // Create and register a Status Callback Listener
     mCPE.addStatusCallbackListener(new StatusCallbackListenerImpl());
 
     // Start Processing
-    System.out.println("Running CPE");
+    stdOut.setString("Running CPE");
     mCPE.process();
 
     // Allow user to abort by pressing Enter
-    System.out.println("To abort processing, type \"abort\" and press enter.");
+    stdOut.setString("To abort processing, type \"abort\" and press enter.");
     while (true) {
       String line = new BufferedReader(new InputStreamReader(System.in)).readLine();
       if ("abort".equals(line) && mCPE.isProcessing()) {
-        System.out.println("Aborting...");
+    	  stdOut.setString("Aborting...");
         mCPE.stop();
         break;
       }
     }
-  }
-
-  /**
-   * 
-   */
-  private static void printUsageMessage() {
-    System.out.println(" Arguments to the program are as follows : \n"
-            + "args[0] : path to CPE descriptor file");
-  }
-
-  /**
-   * main class.
-   * 
-   * @param args
-   *          Command line arguments - see class description
-   */
-  public static void main(String[] args) throws Exception {
-    new SimpleRunCPE(args);
   }
 
   /**
@@ -129,8 +108,10 @@ public class SimpleRunCPE extends Thread {
      * 
      * @see org.apache.uima.collection.processing.StatusCallbackListener#initializationComplete()
      */
-    public void initializationComplete() {      
-      System.out.println("CPM Initialization Complete");
+    public void initializationComplete() {   
+      StandardOutput stdOut=StandardOutput.getInstance();
+      stdOut.setString("CPM Initialization Complete");
+//      System.out.println("CPM Initialization Complete");
       mInitCompleteTime = System.currentTimeMillis();
     }
 
@@ -141,13 +122,16 @@ public class SimpleRunCPE extends Thread {
      * 
      */
     public void batchProcessComplete() {
-      System.out.print("Completed " + entityCount + " documents");
+      StandardOutput stdOut=StandardOutput.getInstance();
+      stdOut.setString("Completed " + entityCount + " documents");
+//      System.out.print("Completed " + entityCount + " documents");
       if (size > 0) {
-        System.out.print("; " + size + " characters");
+    	stdOut.setString("; " + size + " characters");
+//        System.out.print("; " + size + " characters");
       }
-      System.out.println();
       long elapsedTime = System.currentTimeMillis() - mStartTime;
-      System.out.println("Time Elapsed : " + elapsedTime + " ms ");
+      stdOut.setString("Time Elapsed : " + elapsedTime + " ms ");
+//      System.out.println("Time Elapsed : " + elapsedTime + " ms ");
     }
 
     /**
@@ -157,20 +141,20 @@ public class SimpleRunCPE extends Thread {
      */
     public void collectionProcessComplete() {
       long time = System.currentTimeMillis();
-      System.out.print("Completed " + entityCount + " documents");
+      StandardOutput stdOut=StandardOutput.getInstance();
+      stdOut.setString("Completed " + entityCount + " documents");
       if (size > 0) {
-        System.out.print("; " + size + " characters");
+    	  stdOut.setString("; " + size + " characters");
       }
-      System.out.println();
       long initTime = mInitCompleteTime - mStartTime; 
       long processingTime = time - mInitCompleteTime;
       long elapsedTime = initTime + processingTime;
-      System.out.println("Total Time Elapsed: " + elapsedTime + " ms ");
-      System.out.println("Initialization Time: " + initTime + " ms");
-      System.out.println("Processing Time: " + processingTime + " ms");
+      stdOut.setString("Total Time Elapsed: " + elapsedTime + " ms ");
+      stdOut.setString("Initialization Time: " + initTime + " ms");
+      stdOut.setString("Processing Time: " + processingTime + " ms");
       
-      System.out.println("\n\n ------------------ PERFORMANCE REPORT ------------------\n");
-      System.out.println(mCPE.getPerformanceReport().toString());
+      stdOut.setString("\n\n ------------------ PERFORMANCE REPORT ------------------\n");
+      stdOut.setString(mCPE.getPerformanceReport().toString());
       // stop the JVM. Otherwise main thread will still be blocked waiting for
       // user to press Enter.
       System.exit(1);
@@ -230,5 +214,5 @@ public class SimpleRunCPE extends Thread {
       }
     }
   }
-
 }
+

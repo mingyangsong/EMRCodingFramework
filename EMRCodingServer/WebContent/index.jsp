@@ -1,4 +1,3 @@
-<%@page import="java.io.InputStreamReader"%>
 <%@ page language="java" contentType="text/html; charset=GB18030"
 	pageEncoding="GB18030"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,18 +14,19 @@
 		<center>
 			<table width="70%">
 				<tr>
-					<td valign="top"><div align="right">Input:</div></td>
-					<td><textarea name="input" rows="5" cols="50"></textarea></td>
+					<td><input type="Submit" name="Submit" value="Start"></td>
+				</tr>
 				<tr>
-					<td></td>
-					<td><input type="Submit" name="Submit" value="Submit"></td>
+					<td><input name="input" type="text" value="\descriptors\MappingCPE.xml"></td>
 				</tr>
 			</table>
 			<br> <br> <br>
 			<table width="70%">
 				<tr>
-					<td valign="top"><div align="right">Output:</div></td>
-					<td valign="top" align="left"><textarea name="output" rows="5" cols="50"><%=request.getAttribute("INPUT")%></textarea></td>
+					<td>REPORT</td>
+				</tr>
+				<tr>
+					<td><textarea name="output" rows="5" cols="50"><%=request.getAttribute("REPORT")%></textarea></td>
 				</tr>
 			</table>
 		</center>
