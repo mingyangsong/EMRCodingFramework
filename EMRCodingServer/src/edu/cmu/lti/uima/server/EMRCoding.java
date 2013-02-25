@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public class EMRCoding extends HttpServlet {
 
+	private static String FileDir = null;
 	private static final long serialVersionUID = -3522462295690035558L;
+	private static StandardOutput std = StandardOutput.getInstance();
 
 	@Override
 	public void init() throws ServletException {
@@ -26,30 +28,22 @@ public class EMRCoding extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		FileDir = request.getParameter("input");
 		
-		String strDirPath = getServletContext().getRealPath("/");
-//		String strPathFile = application.getRealPath(request.getRequestURI());
-		System.out.println("文件的绝对路径:" + strDirPath+ "<br/>");
-		
-		String FileDir = request.getParameter("input");
-		System.out.println(FileDir);
-
-		StandardOutput std = StandardOutput.getInstance();
-		std.setNull();
-
-		try {
-			new SimpleRunCPE(
-					"C:/Users/s/Desktop/EMRCoding/EMRCoding_Server/EMRCodingServer/WebContent/descriptors/MappingCPE.xml");
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (FileDir != null && FileDir != "") {
+			std.setNull();
+			String path = request.getSession().getServletContext()
+					.getRealPath("");
+			try {
+				new SimpleRunCPE(path + FileDir);
+			} catch (Exception e) {
+				e.printStackTrace();
+				std.setString("Error!!");
+			}
 		}
-
 		String Input = std.getString();
-
 		request.setAttribute("REPORT", Input);
-
 		ServletContext context = getServletContext();
-
 		// System.out.print("Redirecting to" + target);
 		RequestDispatcher dispatcher = context
 				.getRequestDispatcher("/index.jsp");

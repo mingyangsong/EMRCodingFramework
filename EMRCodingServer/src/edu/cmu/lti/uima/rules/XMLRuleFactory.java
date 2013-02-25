@@ -12,8 +12,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import edu.cmu.lti.uima.server.StandardOutput;
+
 public class XMLRuleFactory {
 	private static boolean VERBOSE = true;
+	private static StandardOutput stdOut=StandardOutput.getInstance();
 	public static Map<List<String>,List<String>> parseRuleFiles ( String dirpath ) {
 		int totalFiles = 0;
 		int totalRules = 0;
@@ -28,15 +31,15 @@ public class XMLRuleFactory {
 			File ruleFile = new File( d , file );
 			List<BagRule> rules = XMLRuleFactory.parseRuleFile( ruleFile );
 			if ( rules == null ) {
-				System.out.println( "Error parsing file, skipping: " + file );
+				stdOut.setString( "Error parsing file, skipping: " + file );
 				skipTotal++;
 			} else {
-				if ( VERBOSE ) System.out.println( "Read " + rules.size() + " rules from " + file );
+				if ( VERBOSE ) stdOut.setString( "Read " + rules.size() + " rules from " + file );
 				totalRules += rules.size() ;
 				XMLRuleFactory.addBagRules( rules , result );
 			}
 		}
-		System.out.println( "Read " + totalRules + " rule(s) from " + totalFiles + " file(s), skipped " + skipTotal + " file(s) with exceptions." );
+		stdOut.setString( "Read " + totalRules + " rule(s) from " + totalFiles + " file(s), skipped " + skipTotal + " file(s) with exceptions." );
 		return result;
 	}
 	public static Map<List<String>,List<String>> parseMappingFiles ( String dirpath ) {
@@ -54,15 +57,15 @@ public class XMLRuleFactory {
 			String ruleCode = ruleFile.getName().replace( ".txt.xml" , "" );
 			List<Rule> rules = XMLRuleFactory.parseMappingFile( ruleFile , ruleCode );
 			if ( rules == null ) {
-				System.out.println( "Error parsing file, skipping: " + file );
+				stdOut.setString( "Error parsing file, skipping: " + file );
 				skipTotal++;
 			} else {
-				if ( VERBOSE ) System.out.println( "Read " + rules.size() + " rules from " + file );
+				if ( VERBOSE ) stdOut.setString( "Read " + rules.size() + " rules from " + file );
 				totalRules += rules.size();
 				XMLRuleFactory.addMappingRules( rules , result );
 			}
 		}
-		System.out.println( "Read " + totalRules + " mappings from " + totalFiles + " files, skipped " + skipTotal + " files with exceptions." );
+		stdOut.setString( "Read " + totalRules + " mappings from " + totalFiles + " files, skipped " + skipTotal + " files with exceptions." );
 		return result;
 	}
 	private static void addMappingRules ( List<Rule> rules , Map<List<String>,List<String>> map ) {
@@ -165,9 +168,9 @@ public class XMLRuleFactory {
 			for ( String i10Code : i10Codes )
 				result.add( new BagRule( smCodes , i10Code , "RulesFile" ) );
 		}
-		System.out.println( "Rules initialized: " );
+		stdOut.setString( "Rules initialized: " );
 		 for ( BagRule r : result )
-			 System.out.println( r );
+			 stdOut.setString( r.toString() );
 		return result;
 	}
 	private static String fixI10Id ( String code ) {
@@ -192,6 +195,6 @@ public class XMLRuleFactory {
 	public static void main ( String[] args ) {
 		String dirpath = "data/ICD10-code-list-output";		
 		Map<List<String>,List<String>> s2iMap = XMLRuleFactory.parseMappingFiles( dirpath );
-		System.out.println( "s2i map has " + s2iMap.keySet().size() + " entries." );
+		stdOut.setString( "s2i map has " + s2iMap.keySet().size() + " entries." );
 	}
 }

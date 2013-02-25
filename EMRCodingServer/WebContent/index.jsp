@@ -11,29 +11,32 @@
 	<hr align="center" width="90%" size="2" noshade>
 	<br>
 	<form name="MainForm" method="post" action="EMRCoding">
-		<center>
-			<table width="70%">
-				<tr>
-					<td><input type="Submit" name="Submit" value="Start"></td>
-				</tr>
-				<tr>
-					<td><input name="input" type="text" value="\descriptors\MappingCPE.xml"></td>
-				</tr>
-			</table>
-			<br> <br> <br>
-			<table width="70%">
-				<tr>
-					<td>REPORT</td>
-				</tr>
-				<tr>
-					<td><textarea name="output" rows="5" cols="50"><%
-					String s=request.getAttribute("REPORT").toString();
-					if(s!=null)
-						out.print(s);
-					%></textarea></td>
-				</tr>
-			</table>
-		</center>
+		<table align="center" width="70%">
+			<tr>
+				<td align="center"><input type="Submit" name="Submit"
+					value="Start"></td>
+			</tr>
+			<tr>
+				<td align="center"><input name="input" type="text" value="/descriptors/MappingCPE.xml"></td>
+			</tr>
+		</table>
 	</form>
+	<br>
+	<br>
+	<br>
+	
+	<table align="center" width="70%">
+		<tr>
+			<td align="center">REPORT</td>
+		</tr>
+		<tr>
+			<td align="center"><textarea name="output" rows="10" cols="80"><%
+						String s = request.getAttribute("REPORT").toString();
+						if (s != null)
+							out.print(s);
+					
+			%></textarea></td>
+		</tr>
+	</table>
 </body>
 </html>

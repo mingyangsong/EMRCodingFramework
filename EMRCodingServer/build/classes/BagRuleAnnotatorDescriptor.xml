@@ -2,9 +2,9 @@
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>
-  <annotatorImplementationName>edu.cmu.lti.uima.rules.MappingRuleAnnotator</annotatorImplementationName>
+  <annotatorImplementationName>edu.cmu.lti.uima.rules.BagRuleAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>MappingRuleAnnotatorDescriptor</name>
+    <name>BagRuleAnnotatorDescriptor</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -15,27 +15,12 @@
         <multiValued>false</multiValued>
         <mandatory>false</mandatory>
       </configurationParameter>
-      <configurationParameter>
-        <name>ruleSources</name>
-        <type>String</type>
-        <multiValued>true</multiValued>
-        <mandatory>true</mandatory>
-      </configurationParameter>
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
         <name>xmlRuleFolder</name>
         <value>
-          <string>C:\Users\s\Desktop\EMRCoding\EMRCoding_Server\EMRCodingServer\ICD10-code-list-output</string>
-        </value>
-      </nameValuePair>
-      <nameValuePair>
-        <name>ruleSources</name>
-        <value>
-          <array>
-            <string>GS</string>
-            <string>CLIX</string>
-          </array>
+          <string>data/rules</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

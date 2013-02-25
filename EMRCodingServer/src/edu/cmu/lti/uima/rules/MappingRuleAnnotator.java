@@ -11,6 +11,8 @@ import org.apache.uima.cas.FSIterator;
 import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
+
+import edu.cmu.lti.uima.server.StandardOutput;
 import edu.cmu.lti.uima.types.*;
 /*import com.precyse.freedom.uima.types.ICD10DC;
 import com.precyse.freedom.uima.types.SNOMED;*/

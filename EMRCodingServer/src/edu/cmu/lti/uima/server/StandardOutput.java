@@ -12,13 +12,13 @@ public class StandardOutput {
 	public static StandardOutput getInstance() {
 		return _theInstance;
 	}
-	
-	public void setNull(){
-		this.out="";
+
+	public void setNull() {
+		this.out = "";
 	}
 
 	public void setString(String s) {
-		out += s;
+		out = out + s + "\n";
 	}
 
 	public String getString() {

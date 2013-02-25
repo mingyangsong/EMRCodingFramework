@@ -24,6 +24,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import javax.servlet.http.HttpServlet;
+
 import org.apache.uima.UIMAFramework;
 import org.apache.uima.cas.CAS;
 import org.apache.uima.collection.CollectionProcessingEngine;
@@ -39,12 +41,14 @@ import org.apache.uima.util.XMLInputSource;
  * 
  * 
  */
-public class SimpleRunCPE extends Thread {
+public class SimpleRunCPE{
   /**
    * The CPE instance.
    */
   private CollectionProcessingEngine mCPE;
 
+  private static StandardOutput stdOut=StandardOutput.getInstance();
+  
   /**
    * Start time of CPE initialization
    */
@@ -64,29 +68,27 @@ public class SimpleRunCPE extends Thread {
   public SimpleRunCPE(String filedir) throws Exception {
     mStartTime = System.currentTimeMillis();
 
-    StandardOutput stdOut=StandardOutput.getInstance();
-    
     // parse CPE descriptor
-    stdOut.setString("Parsing CPE Descriptor\n");
+    stdOut.setString("Parsing CPE Descriptor");
     CpeDescription cpeDesc = UIMAFramework.getXMLParser().parseCpeDescription(
             new XMLInputSource(filedir));
     // instantiate CPE
-    stdOut.setString("Instantiating CPE\n");
+    stdOut.setString("Instantiating CPE");
     mCPE = UIMAFramework.produceCollectionProcessingEngine(cpeDesc);
 
     // Create and register a Status Callback Listener
     mCPE.addStatusCallbackListener(new StatusCallbackListenerImpl());
 
     // Start Processing
-    stdOut.setString("Running CPE\n");
+    stdOut.setString("Running CPE");
     mCPE.process();
 
     // Allow user to abort by pressing Enter
-    stdOut.setString("To abort processing, type \"abort\" and press enter.\n");
+    stdOut.setString("To abort processing, type \"abort\" and press enter.");
     while (true) {
       String line = new BufferedReader(new InputStreamReader(System.in)).readLine();
       if ("abort".equals(line) && mCPE.isProcessing()) {
-    	  stdOut.setString("Aborting...\n");
+    	  stdOut.setString("Aborting...");
         mCPE.stop();
         break;
       }
@@ -109,8 +111,7 @@ public class SimpleRunCPE extends Thread {
      * @see org.apache.uima.collection.processing.StatusCallbackListener#initializationComplete()
      */
     public void initializationComplete() {   
-      StandardOutput stdOut=StandardOutput.getInstance();
-      stdOut.setString("CPM Initialization Complete\n");
+      stdOut.setString("CPM Initialization Complete");
 //      System.out.println("CPM Initialization Complete");
       mInitCompleteTime = System.currentTimeMillis();
     }
@@ -122,7 +123,6 @@ public class SimpleRunCPE extends Thread {
      * 
      */
     public void batchProcessComplete() {
-      StandardOutput stdOut=StandardOutput.getInstance();
       stdOut.setString("Completed " + entityCount + " documents");
 //      System.out.print("Completed " + entityCount + " documents");
       if (size > 0) {
@@ -141,7 +141,6 @@ public class SimpleRunCPE extends Thread {
      */
     public void collectionProcessComplete() {
       long time = System.currentTimeMillis();
-      StandardOutput stdOut=StandardOutput.getInstance();
       stdOut.setString("Completed " + entityCount + " documents");
       if (size > 0) {
     	  stdOut.setString("; " + size + " characters");
