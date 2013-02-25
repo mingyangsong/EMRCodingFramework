@@ -26,7 +26,11 @@
 					<td>REPORT</td>
 				</tr>
 				<tr>
-					<td><textarea name="output" rows="5" cols="50"><%=request.getAttribute("REPORT")%></textarea></td>
+					<td><textarea name="output" rows="5" cols="50"><%
+					String s=request.getAttribute("REPORT").toString();
+					if(s!=null)
+						out.print(s);
+					%></textarea></td>
 				</tr>
 			</table>
 		</center>

@@ -67,26 +67,26 @@ public class SimpleRunCPE extends Thread {
     StandardOutput stdOut=StandardOutput.getInstance();
     
     // parse CPE descriptor
-    stdOut.setString("Parsing CPE Descriptor");
+    stdOut.setString("Parsing CPE Descriptor\n");
     CpeDescription cpeDesc = UIMAFramework.getXMLParser().parseCpeDescription(
             new XMLInputSource(filedir));
     // instantiate CPE
-    stdOut.setString("Instantiating CPE");
+    stdOut.setString("Instantiating CPE\n");
     mCPE = UIMAFramework.produceCollectionProcessingEngine(cpeDesc);
 
     // Create and register a Status Callback Listener
     mCPE.addStatusCallbackListener(new StatusCallbackListenerImpl());
 
     // Start Processing
-    stdOut.setString("Running CPE");
+    stdOut.setString("Running CPE\n");
     mCPE.process();
 
     // Allow user to abort by pressing Enter
-    stdOut.setString("To abort processing, type \"abort\" and press enter.");
+    stdOut.setString("To abort processing, type \"abort\" and press enter.\n");
     while (true) {
       String line = new BufferedReader(new InputStreamReader(System.in)).readLine();
       if ("abort".equals(line) && mCPE.isProcessing()) {
-    	  stdOut.setString("Aborting...");
+    	  stdOut.setString("Aborting...\n");
         mCPE.stop();
         break;
       }
@@ -110,7 +110,7 @@ public class SimpleRunCPE extends Thread {
      */
     public void initializationComplete() {   
       StandardOutput stdOut=StandardOutput.getInstance();
-      stdOut.setString("CPM Initialization Complete");
+      stdOut.setString("CPM Initialization Complete\n");
 //      System.out.println("CPM Initialization Complete");
       mInitCompleteTime = System.currentTimeMillis();
     }

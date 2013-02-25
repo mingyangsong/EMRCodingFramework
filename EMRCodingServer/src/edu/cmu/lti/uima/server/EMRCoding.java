@@ -11,38 +11,48 @@ import javax.servlet.http.HttpServletResponse;
 
 public class EMRCoding extends HttpServlet {
 
-	private String target = "/index.jsp";
 	private static final long serialVersionUID = -3522462295690035558L;
 
-	public EMRCoding() {
-		super();
+	@Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
 	}
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String FileDir = request.getParameter("input");
-		System.out.println(FileDir);
-		try {
-			new SimpleRunCPE(
-					"C:\\Users\\s\\Desktop\\EMRCoding\\EMRCoding_Server\\EMRCodingServer\\descriptors\\descriptors\\MappingCPE.xml");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
+		String strDirPath = getServletContext().getRealPath("/");
+//		String strPathFile = application.getRealPath(request.getRequestURI());
+		System.out.println("文件的绝对路径:" + strDirPath+ "<br/>");
+		
+		String FileDir = request.getParameter("input");
+		System.out.println(FileDir);
 
-		String Input = StandardOutput.getInstance().getString();
+		StandardOutput std = StandardOutput.getInstance();
+		std.setNull();
+
+		try {
+			new SimpleRunCPE(
+					"C:/Users/s/Desktop/EMRCoding/EMRCoding_Server/EMRCodingServer/WebContent/descriptors/MappingCPE.xml");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		String Input = std.getString();
 
 		request.setAttribute("REPORT", Input);
 
 		ServletContext context = getServletContext();
 
-		System.out.print("Redirecting to" + target);
-		RequestDispatcher dispatcher = context.getRequestDispatcher(target);
+		// System.out.print("Redirecting to" + target);
+		RequestDispatcher dispatcher = context
+				.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 	}
 }
