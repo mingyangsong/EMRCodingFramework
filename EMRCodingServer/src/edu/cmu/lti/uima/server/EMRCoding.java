@@ -13,7 +13,7 @@ public class EMRCoding extends HttpServlet {
 
 	private static String FileDir = null;
 	private static final long serialVersionUID = -3522462295690035558L;
-	private static StandardOutput std = StandardOutput.getInstance();
+	private static StandardOutput stdOut = StandardOutput.getInstance();
 
 	@Override
 	public void init() throws ServletException {
@@ -28,25 +28,24 @@ public class EMRCoding extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		FileDir = request.getParameter("input");
-		
-		if (FileDir != null && FileDir != "") {
-			std.setNull();
-			String path = request.getSession().getServletContext()
-					.getRealPath("");
+		FileDir = request.getParameter("descriptor");
+		RealPath.getInstance().set(
+				request.getSession().getServletContext().getRealPath("") + "/");
+
+		if (FileDir != null) {
 			try {
-				new SimpleRunCPE(path + FileDir);
+				new SimpleRunCPE((RealPath.getInstance().get() + FileDir));
 			} catch (Exception e) {
 				e.printStackTrace();
-				std.setString("Error!!");
+				stdOut.setString("Error!!");
 			}
 		}
-		String Input = std.getString();
-		request.setAttribute("REPORT", Input);
+		String Input = stdOut.getString();
+		request.setAttribute("REPORT", Input + Math.random());
 		ServletContext context = getServletContext();
-		// System.out.print("Redirecting to" + target);
 		RequestDispatcher dispatcher = context
 				.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
+		stdOut.setNull();
 	}
 }

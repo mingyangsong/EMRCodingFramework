@@ -13,29 +13,25 @@
 	<form name="MainForm" method="post" action="EMRCoding">
 		<table align="center" width="70%">
 			<tr>
-				<td align="center"><input type="Submit" name="Submit"
-					value="Start"></td>
+				<td align="center">DESCRIPTOR: <input name="descriptor"
+					type="text" value="/descriptors/MappingCPE.xml"></td>
 			</tr>
 			<tr>
-				<td align="center"><input name="input" type="text" value="/descriptors/MappingCPE.xml"></td>
+				<td align="center"><input type="Submit" name="Submit"
+					value="PROCESS" id="Submit"></td>
 			</tr>
 		</table>
 	</form>
 	<br>
 	<br>
-	<br>
-	
 	<table align="center" width="70%">
 		<tr>
 			<td align="center">REPORT</td>
 		</tr>
 		<tr>
-			<td align="center"><textarea name="output" rows="10" cols="80"><%
-						String s = request.getAttribute("REPORT").toString();
-						if (s != null)
-							out.print(s);
-					
-			%></textarea></td>
+			<td align="center"><textarea name="output" rows="20" cols="80"
+					readonly="readonly"><%=request.getAttribute("REPORT")%></textarea>
+			</td>
 		</tr>
 	</table>
 </body>

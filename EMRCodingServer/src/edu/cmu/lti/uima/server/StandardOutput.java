@@ -6,7 +6,6 @@ public class StandardOutput {
 	private String out = "";
 
 	private StandardOutput() {
-
 	}
 
 	public static StandardOutput getInstance() {

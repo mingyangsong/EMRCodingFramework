@@ -14,6 +14,8 @@ import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 
+import edu.cmu.lti.uima.server.RealPath;
+import edu.cmu.lti.uima.server.StandardOutput;
 import edu.cmu.lti.uima.types.*;
 /*import com.precyse.freedom.uima.types.ICD10DC;
 import com.precyse.freedom.uima.types.SNOMED;
@@ -22,10 +24,11 @@ public class BagRuleAnnotator extends JCasAnnotator_ImplBase {
 	
 	Map<List<String>,List<String>> s2iMap;
 	String[] ruleSources;
+	private static StandardOutput stdOut = StandardOutput.getInstance();
 	
 	public void initialize( UimaContext aContext ) throws ResourceInitializationException {
 		  super.initialize( aContext );
-		  String xmlRuleFolderName = (String) aContext.getConfigParameterValue( "xmlRuleFolder" );
+		  String xmlRuleFolderName = RealPath.getInstance().get() + (String) aContext.getConfigParameterValue( "xmlRuleFolder" );
 		  s2iMap = XMLRuleFactory.parseRuleFiles( xmlRuleFolderName ); 
 	}
 	
@@ -41,7 +44,7 @@ public class BagRuleAnnotator extends JCasAnnotator_ImplBase {
 
 	public void process( JCas jcas ) throws AnalysisEngineProcessException {
 
-		System.out.println( "BagRuleAnnotator.process()" );
+		stdOut.setString( "BagRuleAnnotator.process()" );
 		
 		// Annotate source codes for rules.
 		String text = jcas.getDocumentText();
@@ -61,7 +64,7 @@ public class BagRuleAnnotator extends JCasAnnotator_ImplBase {
 		while ( iterator.hasNext() ) {
 			SNOMED c = (SNOMED)iterator.next();
 			String id = c.getConceptID();
-			System.out.println( "SNOMED id: " + id );
+			stdOut.setString( "SNOMED id: " + id );
 			smCodes.add( id );
 		}
 		for ( List<String> key : s2iMap.keySet() ) {
@@ -69,7 +72,7 @@ public class BagRuleAnnotator extends JCasAnnotator_ImplBase {
 				for ( String i10id : s2iMap.get( key ) ) {
 					ICD10DC i10 = new ICD10DC( jcas , 0 , text.length() );
 					i10.setCode( i10id );
-					System.out.println( "Matched, adding I10 code: " + i10id );
+					stdOut.setString( "Matched, adding I10 code: " + i10id );
 					i10.addToIndexes();
 				}
 			}
@@ -78,7 +81,7 @@ public class BagRuleAnnotator extends JCasAnnotator_ImplBase {
 	}
 	
 	private boolean matchSMCodes( List<String> smIds , List<String> smCodes ) {
-		System.out.println( "Looking for rule codes: " + smIds +  " in bag: " + smCodes );
+		stdOut.setString( "Looking for rule codes: " + smIds +  " in bag: " + smCodes );
 		for ( String id : smIds )
 			if ( ! smCodes.contains( id ) )
 				return false;

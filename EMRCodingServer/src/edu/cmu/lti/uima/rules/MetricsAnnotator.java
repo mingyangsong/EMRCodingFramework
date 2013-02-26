@@ -9,10 +9,14 @@ import org.apache.uima.cas.FSIterator;
 import org.apache.uima.cas.Type;
 import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
+
+import edu.cmu.lti.uima.server.StandardOutput;
 import edu.cmu.lti.uima.types.*;
 //import com.precyse.freedom.uima.types.ICD10DC;
 
 public class MetricsAnnotator extends JCasAnnotator_ImplBase {
+
+	private static StandardOutput stdOut=StandardOutput.getInstance();
 	
 	@Override
 	public void process( JCas jcas ) throws AnalysisEngineProcessException {
@@ -31,8 +35,8 @@ public class MetricsAnnotator extends JCasAnnotator_ImplBase {
 		}
 		double precision = EvalUtils.calculatePrecision( testLabels , goldLabels );
 		double recall = EvalUtils.calculateRecall( testLabels , goldLabels );
-		System.out.println( "Precision: " + precision );
-		System.out.println( "Recall: " + recall );
+		stdOut.setString( "Precision: " + precision );
+		stdOut.setString( "Recall: " + recall );
 	}
 
 }

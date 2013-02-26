@@ -8,11 +8,15 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
+
+import edu.cmu.lti.uima.server.StandardOutput;
 import edu.cmu.lti.uima.types.*;
 //import com.precyse.freedom.uima.types.ICD10DC;
 
 
 public class DRGAnnotator extends JCasAnnotator_ImplBase {
+	
+	private static StandardOutput stdOut=StandardOutput.getInstance();
 
 	@Override
 	public void process( JCas  jcas ) throws AnalysisEngineProcessException {
@@ -25,7 +29,7 @@ public class DRGAnnotator extends JCasAnnotator_ImplBase {
 			if ( c.getSource() != null && c.getSource().equals( "GS" ) ) {
 				goldStandard.add( c );
 			} else {
-				System.out.println( "Source: " + c.getSource() + " Output Code: " + c.getCode() );
+				stdOut.setString( "Source: " + c.getSource() + " Output Code: " + c.getCode() );
 				testLabels.add( c );
 			}
 		}

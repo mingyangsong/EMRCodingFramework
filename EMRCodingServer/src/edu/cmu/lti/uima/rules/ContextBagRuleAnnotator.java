@@ -14,6 +14,8 @@ import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
+
+import edu.cmu.lti.uima.server.RealPath;
 import edu.cmu.lti.uima.types.*;
 /*
 import com.precyse.freedom.uima.types.ICD10DC;
@@ -29,7 +31,7 @@ public class ContextBagRuleAnnotator extends JCasAnnotator_ImplBase {
 	
 	public void initialize( UimaContext aContext ) throws ResourceInitializationException {
 		  super.initialize( aContext );
-		  String xmlRuleFolderName = (String) aContext.getConfigParameterValue( "xmlRuleFolder" );
+		  String xmlRuleFolderName = RealPath.getInstance().get() + (String) aContext.getConfigParameterValue( "xmlRuleFolder" );
 		  s2iMap = XMLRuleFactory.parseRuleFiles( xmlRuleFolderName ); 
 		  contextType = (String) aContext.getConfigParameterValue( "contextType" );
 	}
