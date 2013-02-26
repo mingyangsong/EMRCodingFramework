@@ -14,6 +14,8 @@ public class EMRCoding extends HttpServlet {
 	private static String FileDir = null;
 	private static final long serialVersionUID = -3522462295690035558L;
 	private static StandardOutput stdOut = StandardOutput.getInstance();
+	int i=100;
+	int b=200;
 
 	@Override
 	public void init() throws ServletException {
@@ -37,11 +39,11 @@ public class EMRCoding extends HttpServlet {
 				new SimpleRunCPE((RealPath.getInstance().get() + FileDir));
 			} catch (Exception e) {
 				e.printStackTrace();
-				stdOut.setString("Error!!");
+				stdOut.setString("Error!!"+b++);
 			}
 		}
 		String Input = stdOut.getString();
-		request.setAttribute("REPORT", Input + Math.random());
+		request.setAttribute("REPORT", Input+i++);
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context
 				.getRequestDispatcher("/index.jsp");
