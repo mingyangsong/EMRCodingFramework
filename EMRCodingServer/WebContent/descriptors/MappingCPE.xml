@@ -90,7 +90,7 @@
                 <nameValuePair>
                     <name>OutputDirectory</name>
                     <value>
-                        <string>C:/Users/s/Desktop/EMRCoding/EMRCoding_Server/EMRCodingServer/WebContent/data/outputs</string>
+                        <string>C:/Users/s/Desktop/EMRCoding/EMRCoding_Server/EMRCodingServer/WebContent/data/output</string>
                     </value>
                 </nameValuePair>
             </configurationParameterSettings>
