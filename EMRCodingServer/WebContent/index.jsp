@@ -36,7 +36,7 @@
 			<tr>
 				<td>
 					<table>
-						<tr>
+						<tr>  
 							<td width="80%"></td>
 							<td width="20%" bgcolor="#ACDDEC"><input type="checkbox"
 								name="SNOWMEDS" id="SNOWMEDS1" value="364006">364006<br>
