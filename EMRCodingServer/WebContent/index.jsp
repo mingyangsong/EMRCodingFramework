@@ -6,85 +6,74 @@
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
 <title>EMRCoding</title>
 </head>
+<script language="JavaScript">
+	function openwindow() {
+		var result =364006;
+		OpenWindow = window.showModalDialog("newBox.jsp?p1=" + result, window,
+				"status:no;scroll:no;dialogWidth:235px;dialogHeight:100px");
+	}
+	function openwindow1() {
+		OpenWindow = window.open("", "newwin",
+				"height=250, width=250,toolbar=no,scrollbars=" + scroll
+						+ ",menubar=no");
+		OpenWindow.document.write("<BODY BGCOLOR=#ffffff>");
+		OpenWindow.document.write("<h1>Hello!</h1>");
+		OpenWindow.document.write("New window opened!");
+		OpenWindow.document.write("</BODY>");
+		OpenWindow.document.write("</HTML>");
+		OpenWindow.document.close();
+	}
+</script>
 <body>
-	<script language="JavaScript">
-		function checkAll() {
-			for ( var j = 1; j <= 10; j++) {
-				box = eval("document.MainForm.SNOWMEDS" + j);
-				if (box.checked == false)
-					box.checked = true;
-			}
-		}
-		function uncheckAll() {
-			for ( var j = 1; j <= 10; j++) {
-				box = eval("document.MainForm.SNOWMEDS" + j);
-				if (box.checked == true)
-					box.checked = false;
-			}
-		}
-	</script>
-
-
 	<h1 align="center">Welcome To EMR Coding Demo</h1>
 	<hr align="center" width="90%" size="2" noshade>
-	<br>
+	<h3 align="center">Input Area</h3>
 	<form name="MainForm" method="post" action="EMRCoding">
 		<table align="center" width="70%">
 			<tr>
-				<td align="center">CHECK INPUT:</td>
+				<td align="center"></td>
 			</tr>
 			<tr>
-				<td>
-					<table>
-						<tr>  
-							<td width="80%"></td>
-							<td width="20%" bgcolor="#ACDDEC"><input type="checkbox"
-								name="SNOWMEDS" id="SNOWMEDS1" value="364006">364006<br>
-								<input type="checkbox" name="SNOWMEDS" id="SNOWMEDS2"
-								value="74960003">74960003<br> <input
-								type="checkbox" name="SNOWMEDS" id="SNOWMEDS3" value="219006">219006<br>
-								<input type="checkbox" name="SNOWMEDS" id="SNOWMEDS4"
-								value="317006">317006<br> <input type="checkbox"
-								name="SNOWMEDS" id="SNOWMEDS5" value="355001">355001<br>
-								<input type="checkbox" name="SNOWMEDS" id="SNOWMEDS6"
-								value="199930000">199930000<br> <input
-								type="checkbox" name="SNOWMEDS" id="SNOWMEDS7" value="596004">596004<br>
-								<input type="checkbox" name="SNOWMEDS" id="SNOWMEDS8"
-								value="815008">815008<br> <input type="checkbox"
-								name="SNOWMEDS" id="SNOWMEDS9" value="401314000">401314000<br>
-								<input type="checkbox" name="SNOWMEDS" id="SNOWMEDS10"
-								value="275498002">275498002<br>
-						</tr>
-					</table>
+				<td align="center" bgcolor="#C91622"><h4>
+						<font color="#FFFFFF">DESCRIPTOR</font>
+					</h4> <input name="DESCRIPTOR" type="text"
+					value="/descriptors/MappingCPE.xml"></td>
+			</tr>
+			<tr>
+				<td align="center" bgcolor="#C91622">
+					<h4>
+						<font color="#FFFFFF">EMR DOC</font>
+					</h4> <textarea name="EMRIN" rows="20" cols="80"></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td align="center"><input type=button value="Select All"
-					onClick="checkAll()"> <input type=button
-					value="Unselect All" onClick="uncheckAll()"></td>
+				<td align="center" bgcolor="#C91622">
+					<h4>
+						<font color="#FFFFFF">SNOWMED CHECK</font>
+					</h4> <input name="SNOWMEDIN">
+				</td>
 			</tr>
 			<tr>
-
-				<td align="center"><br>OTHER SNOWMED:</td>
+				<td align="center" bgcolor="#C91622">
+					<h4>
+						<font color="#FFFFFF">RATIO (k=precision/recall)</font>
+					</h4> <input name="RATIOIN">
+				</td>
 			</tr>
 			<tr>
-				<td align="center"><input name="USERIN"></td>
-			</tr>
-			<tr>
-				<td align="center"><input type="Submit" name="Submit"
-					value="PROCESS" id="Submit"></td>
+				<td align="center" bgcolor="#C91622"><br> <br> <input
+					type="Submit" name="Submit" value="PROCESS" id="Submit"
+					onclick="openwindow();"></td>
 			</tr>
 		</table>
 	</form>
 	<br>
 	<br>
+	<h3 align="center">Report Area</h3>
 	<table align="center" width="70%">
 		<tr>
-			<td align="center">REPORT</td>
-		</tr>
-		<tr>
-			<td align="center"><textarea name="output" rows="20" cols="80"
-					readonly="readonly"><%=request.getAttribute("REPORT")%></textarea>
+			<td align="center" bgcolor="#C91622"><textarea name="OUTPUT"
+					rows="20" cols="80" readonly="readonly"><%=request.getAttribute("REPORT")%></textarea>
 			</td>
 		</tr>
 	</table>

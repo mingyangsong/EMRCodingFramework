@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.cmu.lti.uima.rules.hieratical.test;
 
@@ -33,25 +34,20 @@ public class EMRCoding extends HttpServlet {
 		RealPath.getInstance().set(
 				request.getSession().getServletContext().getRealPath("") + "/");
 		stdOut.setNull();
-		String[] checklist = request.getParameterValues("SNOWMEDS");
-		String userin = request.getParameter("USERIN");
-		String input = "";
-		if (checklist != null) {
-			for (String c : checklist) {
-				input += c + " ";
-			}
-		}
-		if (input != null)
-			input += userin;
-
-		System.out.println(input);
-
-		if (!input.equals(""))
-			new test(input);
-		else
-			stdOut.setString("No SNOWMED Input!!");
+		String descriptor=request.getParameter("DESCRIPTOR");
+		String snowmed = request.getParameter("SNOWMEDIN");
+		String emr = request.getParameter("EMRIN");
+		String ratio=request.getParameter("RATIOIN");
+		
+		stdOut.setString("Descriptor "+descriptor+"\nEMR "+emr+"\nSnowmed "+snowmed+"\nRatio "+ratio);
+//		if (!input.equals(""))
+//			new test(input);
+//		else
+//			stdOut.setString("No SNOWMED Input!!");
 
 		String Input = stdOut.getString();
+//		HttpSession session=request.getSession(); 
+		request.setAttribute("SNOWMED",emr); 
 		request.setAttribute("REPORT", Input);
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context

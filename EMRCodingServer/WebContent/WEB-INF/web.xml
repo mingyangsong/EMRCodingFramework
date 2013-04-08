@@ -10,6 +10,15 @@
 		<servlet-name>EMRCoding</servlet-name>
 		<url-pattern>/EMRCoding</url-pattern>
 	</servlet-mapping>
+	  <servlet>
+		<description>Feedback UI</description>
+		<servlet-name>Feedback</servlet-name>
+		<servlet-class>edu.cmu.lti.uima.server.Feedback</servlet-class>
+  </servlet>
+   	<servlet-mapping>
+		<servlet-name>Feedback</servlet-name>
+		<url-pattern>/Feedback</url-pattern>
+	</servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
