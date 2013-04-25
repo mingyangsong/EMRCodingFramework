@@ -34,24 +34,19 @@ public class EMRCoding extends HttpServlet {
 		RealPath.getInstance().set(
 				request.getSession().getServletContext().getRealPath("") + "/");
 		stdOut.setNull();
-		String descriptor=request.getParameter("DESCRIPTOR");
-		String snowmed = request.getParameter("SNOWMEDIN");
 		String emr = request.getParameter("EMRIN");
-		String ratio=request.getParameter("RATIOIN");
 		
-		stdOut.setString("Descriptor "+descriptor+"\nEMR "+emr+"\nSnowmed "+snowmed+"\nRatio "+ratio);
+		stdOut.setString("\nEMR "+emr);
 //		if (!input.equals(""))
 //			new test(input);
 //		else
 //			stdOut.setString("No SNOWMED Input!!");
 
-		String Input = stdOut.getString();
-//		HttpSession session=request.getSession(); 
-		request.setAttribute("SNOWMED",emr); 
-		request.setAttribute("REPORT", Input);
+		
+		request.setAttribute("REPORT", emr);
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context
-				.getRequestDispatcher("/index.jsp");
+				.getRequestDispatcher("/result.jsp");
 		dispatcher.forward(request, response);
 	}
 }
