@@ -19,15 +19,6 @@
     <servlet-name>Result</servlet-name>
     <url-pattern>/Result</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description>JD Testing UI</description>
-    <servlet-name>JD</servlet-name>
-    <servlet-class>edu.cmu.lti.uima.server.JD</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>JD</servlet-name>
-    <url-pattern>/JD</url-pattern>
-  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
