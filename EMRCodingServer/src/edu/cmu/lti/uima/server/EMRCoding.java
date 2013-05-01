@@ -25,7 +25,6 @@ public class EMRCoding extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request,
@@ -35,18 +34,28 @@ public class EMRCoding extends HttpServlet {
 				request.getSession().getServletContext().getRealPath("") + "/");
 		stdOut.setNull();
 		String emr = request.getParameter("EMRIN");
-		
-		stdOut.setString("\nEMR "+emr);
-//		if (!input.equals(""))
-//			new test(input);
-//		else
-//			stdOut.setString("No SNOWMED Input!!");
 
-		
+		stdOut.setString("\nEMR " + emr);
+		// if (!input.equals(""))
+		// new test(input);
+		// else
+		// stdOut.setString("No SNOWMED Input!!");
+		int times = 0;
+		while (true) {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			times++;
+			if (times > 3)
+				break;
+		}
 		request.setAttribute("REPORT", emr);
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context
-				.getRequestDispatcher("/result.jsp");
+				.getRequestDispatcher("/JD.jsp");
 		dispatcher.forward(request, response);
 	}
 }
