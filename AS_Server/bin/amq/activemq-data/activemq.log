@@ -1,0 +1,49 @@
+2013-03-21 10:32:45,877 [main           ] INFO  BrokerService                  - Using Persistence Adapter: MemoryPersistenceAdapter
+2013-03-21 10:32:45,887 [main           ] INFO  BrokerService                  - ActiveMQ 5.4.1 JMS Message Broker (localhost) is starting
+2013-03-21 10:32:45,887 [main           ] INFO  BrokerService                  - For help or more information please see: http://activemq.apache.org/
+2013-03-21 10:32:46,126 [JMX connector  ] INFO  ManagementContext              - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+2013-03-21 10:32:46,189 [main           ] INFO  TransportServerThreadSupport   - Listening for connections at: tcp://s:61616
+2013-03-21 10:32:46,189 [main           ] INFO  TransportConnector             - Connector openwire Started
+2013-03-21 10:32:46,193 [main           ] INFO  BrokerService                  - ActiveMQ JMS Message Broker (localhost, ID:s-29486-1363876365920-0:0) started
+2013-03-21 10:33:49,421 [main           ] INFO  BrokerService                  - Using Persistence Adapter: MemoryPersistenceAdapter
+2013-03-21 10:33:49,423 [main           ] INFO  BrokerService                  - ActiveMQ 5.4.1 JMS Message Broker (localhost) is starting
+2013-03-21 10:33:49,423 [main           ] INFO  BrokerService                  - For help or more information please see: http://activemq.apache.org/
+2013-03-21 10:33:49,461 [JMX connector  ] INFO  ManagementContext              - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+2013-03-21 10:33:49,623 [main           ] INFO  TransportServerThreadSupport   - Listening for connections at: tcp://s:61616
+2013-03-21 10:33:49,624 [main           ] INFO  TransportConnector             - Connector openwire Started
+2013-03-21 10:33:49,626 [main           ] INFO  BrokerService                  - ActiveMQ JMS Message Broker (localhost, ID:s-29740-1363876429442-0:0) started
+2013-03-21 10:38:12,648 [main           ] INFO  BrokerService                  - Using Persistence Adapter: MemoryPersistenceAdapter
+2013-03-21 10:38:12,651 [main           ] INFO  BrokerService                  - ActiveMQ 5.4.1 JMS Message Broker (localhost) is starting
+2013-03-21 10:38:12,651 [main           ] INFO  BrokerService                  - For help or more information please see: http://activemq.apache.org/
+2013-03-21 10:38:12,666 [JMX connector  ] INFO  ManagementContext              - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+2013-03-21 10:38:12,865 [main           ] INFO  TransportServerThreadSupport   - Listening for connections at: tcp://s:61616
+2013-03-21 10:38:12,865 [main           ] INFO  TransportConnector             - Connector openwire Started
+2013-03-21 10:38:12,869 [main           ] INFO  BrokerService                  - ActiveMQ JMS Message Broker (localhost, ID:s-31408-1363876692676-0:0) started
+2013-03-21 11:36:15,345 [main           ] INFO  BrokerService                  - Using Persistence Adapter: MemoryPersistenceAdapter
+2013-03-21 11:36:15,366 [main           ] INFO  BrokerService                  - ActiveMQ 5.4.1 JMS Message Broker (localhost) is starting
+2013-03-21 11:36:15,366 [main           ] INFO  BrokerService                  - For help or more information please see: http://activemq.apache.org/
+2013-03-21 11:36:15,367 [JMX connector  ] INFO  ManagementContext              - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+2013-03-21 11:36:15,700 [main           ] INFO  TransportServerThreadSupport   - Listening for connections at: tcp://s:61616
+2013-03-21 11:36:15,701 [main           ] INFO  TransportConnector             - Connector openwire Started
+2013-03-21 11:36:15,704 [main           ] INFO  BrokerService                  - ActiveMQ JMS Message Broker (localhost, ID:s-35963-1363880175397-0:0) started
+2013-03-25 14:05:19,787 [main           ] INFO  BrokerService                  - Using Persistence Adapter: MemoryPersistenceAdapter
+2013-03-25 14:05:19,818 [main           ] INFO  BrokerService                  - ActiveMQ 5.4.1 JMS Message Broker (localhost) is starting
+2013-03-25 14:05:19,818 [main           ] INFO  BrokerService                  - For help or more information please see: http://activemq.apache.org/
+2013-03-25 14:05:20,098 [JMX connector  ] INFO  ManagementContext              - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+2013-03-25 14:05:20,318 [main           ] INFO  TransportServerThreadSupport   - Listening for connections at: tcp://s:61616
+2013-03-25 14:05:20,319 [main           ] INFO  TransportConnector             - Connector openwire Started
+2013-03-25 14:05:20,346 [main           ] INFO  BrokerService                  - ActiveMQ JMS Message Broker (localhost, ID:s-1211-1364234719854-0:0) started
+2013-05-01 10:08:43,302 [main           ] INFO  BrokerService                  - Using Persistence Adapter: MemoryPersistenceAdapter
+2013-05-01 10:08:43,329 [main           ] INFO  BrokerService                  - ActiveMQ 5.4.1 JMS Message Broker (localhost) is starting
+2013-05-01 10:08:43,329 [main           ] INFO  BrokerService                  - For help or more information please see: http://activemq.apache.org/
+2013-05-01 10:08:43,765 [JMX connector  ] INFO  ManagementContext              - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+2013-05-01 10:08:43,962 [main           ] INFO  TransportServerThreadSupport   - Listening for connections at: tcp://s:61616
+2013-05-01 10:08:43,963 [main           ] INFO  TransportConnector             - Connector openwire Started
+2013-05-01 10:08:43,973 [main           ] INFO  BrokerService                  - ActiveMQ JMS Message Broker (localhost, ID:s-30772-1367417323442-0:0) started
+2013-05-01 11:43:37,639 [main           ] INFO  BrokerService                  - Using Persistence Adapter: MemoryPersistenceAdapter
+2013-05-01 11:43:37,649 [main           ] INFO  BrokerService                  - ActiveMQ 5.4.1 JMS Message Broker (localhost) is starting
+2013-05-01 11:43:37,649 [main           ] INFO  BrokerService                  - For help or more information please see: http://activemq.apache.org/
+2013-05-01 11:43:37,738 [JMX connector  ] INFO  ManagementContext              - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+2013-05-01 11:43:38,841 [main           ] INFO  TransportServerThreadSupport   - Listening for connections at: tcp://s:61616
+2013-05-01 11:43:38,842 [main           ] INFO  TransportConnector             - Connector openwire Started
+2013-05-01 11:43:38,846 [main           ] INFO  BrokerService                  - ActiveMQ JMS Message Broker (localhost, ID:s-32274-1367423017676-0:0) started
