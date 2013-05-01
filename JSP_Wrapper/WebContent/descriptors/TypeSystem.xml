@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>TypeSystem</name>
+  <description/>
+  <version>1.0</version>
+  <vendor/>
+  <imports>
+    <import location="ICD10DC.xml"/>
+    <import location="ICD10group.xml"/>
+    <import location="Precision.xml"/>
+    <import location="Recall.xml"/>
+    <import location="GeneralStructure.xml"/>
+    <import location="ICD9DC.xml"/>
+    <import location="Sentence.xml"/>
+    <import location="Token.xml"/>
+    <import location="Sentence_ExpandedNE.xml"/>
+    <import location="PersonalInformation.xml"/>
+  </imports>
+</typeSystemDescription>

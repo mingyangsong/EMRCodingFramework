@@ -1,0 +1,9 @@
+updated on 5:42 PM 2/13 2013
+adapt ContextBagRule,DRG,Metric,and SnomedTerm java and xml file to our type system.
+New type (Sentence) is added into type system, which is under general type file.
+All the new pipeline components have been intergrated together in the following sequence:
+
+xmiRead->SnowmedTermListAnnotator->Mapping Rule->Context Bag rule->DRG->Metrics(evaluator)->xmiWrite
+The current parameter for Context Bag is by sentence.
+
+-Yifei
