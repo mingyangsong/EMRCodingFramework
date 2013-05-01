@@ -14,11 +14,11 @@
 	<classpathentry kind="lib" path="lib/uima-tools.jar"/>
 	<classpathentry kind="lib" path="lib/uimaj-bootstrap.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/Yitei/Projects/EMRCode/trunk/combined_src/EMREngine/lib/UimaRegex.jar"/>
-	<classpathentry kind="lib" path="/Users/Yitei/Projects/EMRCode/trunk/combined_src/EMREngine/lib/stanford-corenlp-1.3.4-models.jar"/>
-	<classpathentry kind="lib" path="/Users/Yitei/Projects/EMRCode/trunk/combined_src/EMREngine/lib/stanford-corenlp-1.3.4.jar"/>
-	<classpathentry kind="lib" path="/Users/Yitei/Projects/EMRCode/trunk/combined_src/EMREngine/lib/lingpipe-4.1.0.jar"/>
-	<classpathentry kind="lib" path="/Users/Yitei/Projects/EMRCode/trunk/combined_src/EMREngine/lib/joda-time.jar"/>
-	<classpathentry kind="lib" path="/Users/Yitei/Projects/EMRCode/trunk/combined_src/EMREngine/lib/xom.jar"/>
+	<classpathentry kind="lib" path="C:/Users/s/Desktop/EMRCoding/EMRCodingFramework/AS_Pipeline/lib/UimaRegex.jar"/>
+	<classpathentry kind="lib" path="C:/Users/s/Desktop/EMRCoding/EMRCodingFramework/AS_Pipeline/lib/stanford-corenlp-1.3.4-models.jar"/>
+	<classpathentry kind="lib" path="C:/Users/s/Desktop/EMRCoding/EMRCodingFramework/AS_Pipeline/lib/stanford-corenlp-1.3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/s/Desktop/EMRCoding/EMRCodingFramework/AS_Pipeline/lib/lingpipe-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/s/Desktop/EMRCoding/EMRCodingFramework/AS_Pipeline/lib/joda-time.jar"/>
+	<classpathentry kind="lib" path="C:/Users/s/Desktop/EMRCoding/EMRCodingFramework/AS_Pipeline/lib/xom.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import edu.cmu.lti.uima.rules.hieratical.test;
-
 public class EMRCoding extends HttpServlet {
 
 	private static final long serialVersionUID = -3522462295690035558L;
@@ -32,30 +30,48 @@ public class EMRCoding extends HttpServlet {
 
 		RealPath.getInstance().set(
 				request.getSession().getServletContext().getRealPath("") + "/");
-		stdOut.setNull();
-		String emr = request.getParameter("EMRIN");
 
-		stdOut.setString("\nEMR " + emr);
-		// if (!input.equals(""))
-		// new test(input);
-		// else
-		// stdOut.setString("No SNOWMED Input!!");
-		int times = 0;
-		while (true) {
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		String emrText = request.getParameter("EMRIN");
+
+		// Testing for UIMA AS service
+		try {
+
+			System.out.println("Initialize a RunRemoteAsyncAE()");
+
+			// initialize RunRemoteAsyncAE and passing emrText and the callback
+			// response
+
+			response.setContentType("text/xml");
+			response.setCharacterEncoding("UTF-8");
+			response.setHeader("Cache-Control", "no-cache");
+
+			String xml = "<emrCases>" + "<emr>" 
+                    + "<content>sakdaksdashdaskjd"
+                    + "</content>"
+                    + "<icd>"
+          		   		+ "1234567890" 
+          		   + "</icd>"    	                                   
+          +  "</emr>"
++"</emrCases>";
+			response.getWriter().write(xml);
+			//request.
+			System.out.print(xml);
+			 //runner = new RunRemoteAsyncAE(emrText, response);
+			 //runner.run();
+			int times = 0;
+			while (true) {
+				Thread.sleep(1000);
+				times++;
+				if (times > 2)
+					break;
 			}
-			times++;
-			if (times > 3)
-				break;
-		}
+		
+		
 		request.setAttribute("REPORT", emr);
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context
 				.getRequestDispatcher("/JD.jsp");
 		dispatcher.forward(request, response);
+	}
 	}
 }

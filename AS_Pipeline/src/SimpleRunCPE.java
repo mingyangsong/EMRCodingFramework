@@ -60,19 +60,13 @@ public class SimpleRunCPE extends Thread {
    * @param args
    *          command line arguments into the program - see class description
    */
-  public SimpleRunCPE(String args[]) throws Exception {
+  public SimpleRunCPE(String dir) throws Exception {
     mStartTime = System.currentTimeMillis();
-
-    // check command line args
-    if (args.length < 1) {
-      printUsageMessage();
-      System.exit(1);
-    }
 
     // parse CPE descriptor
     System.out.println("Parsing CPE Descriptor");
     CpeDescription cpeDesc = UIMAFramework.getXMLParser().parseCpeDescription(
-            new XMLInputSource(args[0]));
+            new XMLInputSource(dir));
     // instantiate CPE
     System.out.println("Instantiating CPE");
     mCPE = UIMAFramework.produceCollectionProcessingEngine(cpeDesc);
@@ -97,21 +91,13 @@ public class SimpleRunCPE extends Thread {
   }
 
   /**
-   * 
-   */
-  private static void printUsageMessage() {
-    System.out.println(" Arguments to the program are as follows : \n"
-            + "args[0] : path to CPE descriptor file");
-  }
-
-  /**
    * main class.
    * 
    * @param args
    *          Command line arguments - see class description
    */
   public static void main(String[] args) throws Exception {
-    new SimpleRunCPE(args);
+    new SimpleRunCPE("descriptors/MappingCPE.xml");
   }
 
   /**

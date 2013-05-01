@@ -10,8 +10,6 @@ import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
 import org.w3c.dom.*;
 
-import com.sun.tools.javac.util.List;
-
 public class readTabFile {
 	int numOfSnowMedOnLeftSide;
 	Document dom;
