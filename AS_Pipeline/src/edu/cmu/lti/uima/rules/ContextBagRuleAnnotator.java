@@ -29,7 +29,7 @@ public class ContextBagRuleAnnotator extends JCasAnnotator_ImplBase {
 	
 	public void initialize( UimaContext aContext ) throws ResourceInitializationException {
 		  super.initialize( aContext );
-		  String xmlRuleFolderName = (String) aContext.getConfigParameterValue( "xmlRuleFolder" );
+		  String xmlRuleFolderName = "C:\\Users\\s\\Desktop\\EMRCoding\\EMRCodingFramework\\AS_Server\\data\\rules";
 		  s2iMap = XMLRuleFactory.parseRuleFiles( xmlRuleFolderName ); 
 		  contextType = (String) aContext.getConfigParameterValue( "contextType" );
 	}

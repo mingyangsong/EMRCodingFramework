@@ -5,7 +5,7 @@
   <version>1.0</version>
   <vendor/>
   <imports>
-    <import location="/Users/Yitei/Projects/EMRCode/trunk/yifeih_src/RulesEngine/descriptors/ICD10group.xml"/>
+    <import location="ICD10group.xml"/>
   </imports>
   <types>
     <typeDescription>

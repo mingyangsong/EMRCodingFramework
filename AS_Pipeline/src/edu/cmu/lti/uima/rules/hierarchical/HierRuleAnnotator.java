@@ -43,7 +43,7 @@ public class HierRuleAnnotator extends JCasAnnotator_ImplBase {
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     super.initialize(aContext);
     //System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
-    String tabFilePath = (String) aContext.getConfigParameterValue("tabRulePath");
+    String tabFilePath = "C:\\Users\\s\\Desktop\\EMRCoding\\EMRCodingFramework\\AS_Server\\data\\infile2.txt";
     ruleSources = (String[]) aContext.getConfigParameterValue("ruleSources");
     if(hierRules==null)
       hierRules = new HierarchicalRule();

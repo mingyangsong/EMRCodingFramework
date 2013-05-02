@@ -26,22 +26,19 @@
   <primitive>false</primitive>
   <delegateAnalysisEngineSpecifiers>
     <delegateAnalysisEngine key="TextToSNOMED">
-      <import location="../../descriptors/TextToSNOMEDWithFST.xml"/>
+      <import location="../descriptors/TextToSNOMEDWithFST.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="HierRule">
-      <import location="../../descriptors/HierRuleAnnotatorDescriptor.xml"/>
+      <import location="../descriptors/HierRuleAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine> 
-<delegateAnalysisEngine key="WordHits">
-      <import location="../../descriptors/WordHitsBasedPrunerDescriptor.xml"/>
-    </delegateAnalysisEngine>  
    <delegateAnalysisEngine key="Regex">
-      <import location="../../descriptors/RegexBasedPruner.xml"/>
+      <import location="../descriptors/RegexBasedPruner.xml"/>
     </delegateAnalysisEngine>  
-<delegateAnalysisEngine key="ContextBagRule">
-      <import location="../../descriptors/ContextBagRuleAnnotatorDescriptor.xml"/>
+   <delegateAnalysisEngine key="ContextBagRule">
+      <import location="../descriptors/ContextBagRuleAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>  
-<delegateAnalysisEngine key="DRG">
-      <import location="../../descriptors/DRGAnnotatorDescriptor.xml"/>
+   <delegateAnalysisEngine key="DRG">
+      <import location="../descriptors/DRGAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>  
 
   </delegateAnalysisEngineSpecifiers>
@@ -54,7 +51,6 @@
       <fixedFlow>
         <node>TextToSNOMED</node>
         <node>HierRule</node>
-        <node>WordHits</node>
         <node>Regex</node>
         <node>ContextBagRule</node>
         <node>DRG</node>

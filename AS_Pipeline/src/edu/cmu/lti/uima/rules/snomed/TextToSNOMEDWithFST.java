@@ -28,7 +28,7 @@ public class TextToSNOMEDWithFST extends JCasAnnotator_ImplBase {
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     super.initialize(aContext);
 
-    rulesFile = (String) aContext.getConfigParameterValue("rulesFile");
+    rulesFile = "C:\\Users\\s\\Desktop\\EMRCoding\\EMRCodingFramework\\AS_Server\\data\\snomedRules\\SnomedList.txt";
 
     snomedFST = new FstTree();
     try {
