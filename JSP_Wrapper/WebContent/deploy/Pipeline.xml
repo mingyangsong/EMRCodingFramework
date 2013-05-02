@@ -25,25 +25,18 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="TextToSNOMED">
-      <import location="../../descriptors/TextToSNOMEDWithFST.xml"/>
+    <delegateAnalysisEngine key="SnomedTerm">
+      <import location="../../descriptors/SnomedTermListAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="HierRule">
       <import location="../../descriptors/HierRuleAnnotatorDescriptor.xml"/>
-    </delegateAnalysisEngine> 
-<delegateAnalysisEngine key="WordHits">
-      <import location="../../descriptors/WordHitsBasedPrunerDescriptor.xml"/>
-    </delegateAnalysisEngine>  
-   <delegateAnalysisEngine key="Regex">
-      <import location="../../descriptors/RegexBasedPruner.xml"/>
-    </delegateAnalysisEngine>  
-<delegateAnalysisEngine key="ContextBagRule">
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="ContextBagRule">
       <import location="../../descriptors/ContextBagRuleAnnotatorDescriptor.xml"/>
-    </delegateAnalysisEngine>  
-<delegateAnalysisEngine key="DRG">
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="DRG">
       <import location="../../descriptors/DRGAnnotatorDescriptor.xml"/>
-    </delegateAnalysisEngine>  
-
+    </delegateAnalysisEngine>    
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>EMR Pipeline</name>
@@ -52,10 +45,8 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>TextToSNOMED</node>
+        <node>SnomedTerm</node>
         <node>HierRule</node>
-        <node>WordHits</node>
-        <node>Regex</node>
         <node>ContextBagRule</node>
         <node>DRG</node>
  	  </fixedFlow>
@@ -65,7 +56,7 @@
       <capability>
         <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">edu.cmu.lti.uima.types.ICD10DC</type>
+          <type allAnnotatorFeatures="true">org.apache.uima.types.ICD10DC</type>
         </outputs>
         <languagesSupported>
           <language>en</language>
